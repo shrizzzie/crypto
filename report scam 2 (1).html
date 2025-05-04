@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Report a Scam</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f8f9fa, #ffe6e6);
+      position: relative;
+    }
+
+    header {
+      background-color: #1f3a56;
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    header h1 {
+      font-weight: bold;
+    }
+
+    .feedback-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: #ff6b6b;
+      border: none;
+      padding: 10px 18px;
+      color: white;
+      font-size: 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .feedback-btn:hover {
+      background-color: #e55050;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      margin-top: 40px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #2c3e50;
+    }
+
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input[type="text"],
+    textarea,
+    input[type="file"] {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    textarea {
+      resize: vertical;
+      height: 100px;
+    }
+
+    button {
+      margin-top: 25px;
+      background-color: #3498db;
+      color: white;
+      padding: 14px 24px;
+      border: none;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .note {
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+    }
+
+    .thank-you-message {
+      text-align: center;
+      font-size: 20px;
+      color: #27ae60;
+      margin-top: 30px;
+      display: none;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Report a Crypto Scam</h1>
+    <p>Help us keep the community safe by reporting suspicious activity.</p>
+    <!-- Feedback Button -->
+    <a href="feedback2.html" class="feedback-btn">Feedback</a>
+  </header>
+
+  <div class="container" id="form-container">
+    <h2>Submit a Scam Report</h2>
+
+    <form id="scamReportForm" enctype="multipart/form-data">
+      <label for="wallet">Suspicious Wallet Address or Transaction Hash</label>
+      <input type="text" id="wallet" name="wallet" required placeholder="e.g. 0x1234... or TxHash"/>
+
+      <label for="details">Details of Suspicious Activity</label>
+      <textarea id="details" name="details" placeholder="Describe what happened..." required></textarea>
+
+      <label for="evidence">Upload Evidence or Screenshot (Optional)</label>
+      <input type="file" id="evidence" name="evidence" accept="image/*,application/pdf" />
+      <div class="note">Max size: 5MB. Accepted formats: JPG, PNG, PDF</div>
+
+      <button type="submit">Submit Report</button>
+    </form>
+    
+    <!-- Thank You Message (hidden by default) -->
+    <div id="thankYouMessage" style="display: none; text-align: center; padding: 40px;">
+      <h2 style="color: #2ecc71; font-size: 28px; margin-bottom: 20px; animation: fadeIn 2s ease;">Thank you for reporting! 🌟</h2>
+      <p style="color: #555; font-size: 18px; animation: fadeIn 2s ease;">Redirecting you to Home Page in a few seconds...</p>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('scamReportForm');
+    const thankYouMessage = document.getElementById('thankYouMessage');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      form.style.display = 'none';
+      thankYouMessage.style.display = 'block';
+
+      // Redirect after 4 seconds
+      setTimeout(() => {
+        window.location.href = "getstarted3.html";
+      }, 4000);
+    });
+  </script>
+
+</body>
+</html>
