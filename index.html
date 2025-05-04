@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Crypto Scam Wallet Checker</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 100px; }
+    input { padding: 10px; width: 300px; }
+    button { padding: 10px 20px; margin-left: 10px; }
+    p { font-weight: bold; margin-top: 20px; font-size: 18px; }
+  </style>
+</head>
+<body>
+  <h2>🔍 Crypto Wallet Scam Detector</h2>
+  <input type="text" id="wallet" placeholder="Enter wallet address here..." />
+  <button onclick="checkWallet()">Check</button>
+  <p id="result"></p>
+
+  <script>
+    function checkWallet() {
+      const wallet = document.getElementById("wallet").value;
+      fetch("http://127.0.0.1:5000/check?wallet=" + wallet) // ← Update this to your backend URL if deployed
+        .then((response) => response.json())
+        .then((data) => {
+          document.getElementById("result").innerText = data.scam
+            ? "⚠ This is a scam wallet!"
+            : "✅ This wallet looks safe.";
+        })
+        .catch((error) => {
+          document.getElementById("result").innerText = "⚠ Error occurred!";
+          console.error(error);
+        });
+    }
+  </script>
+</body>
+</html>
